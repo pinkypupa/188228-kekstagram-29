@@ -10,6 +10,8 @@ function stringLength(stringCheck, maxSymb) {
   return false;
 }
 
+stringLength();
+
 // Функция проверки полиндрома
 
 let textPrepared;
@@ -27,3 +29,5 @@ function reverseString(textToChange) {
   }
   return (textNew === textPrepared);
 }
+
+reverseString();
