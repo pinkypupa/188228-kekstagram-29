@@ -1,11 +1,13 @@
+/* eslint-disable no-console */
 // Функция проверки количества символов строки
 
 const checkString = function (someData, symbols) {
   if (typeof someData === 'string') {
     return (someData.length <= symbols);
+  } else {
+    console.log('Входные данные не являются строкой!');
   }
-  else console.log('Входные данные не являются строкой!');
-}
+};
 
 checkString('Лягушька', 4);
 
@@ -40,7 +42,8 @@ const getNumber = function (anyString) {
     }
   }
   let finalResults = parseInt(resultNumber, 10);
-  finalResults = Number.isNaN(finalResults) ? console.log('NaN') : console.log('Итоговое число из строки: ' + finalResults);
+  // eslint-disable-next-line no-unused-vars
+  finalResults = Number.isNaN(finalResults) ? console.log('NaN') : console.log(`Итоговое число из строки: ${finalResults}`);
 };
 
 getNumber('2023 год');
