@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 
 import { getRandomInteger, getUniqId, getRandomElement } from './util.js';
-import {PHOTOCOUNT, FROMLIKES, TOLIKES, COMMENTCOUNT, descriptionSet, commentMessageSet, commentUserNames} from './userData.js';
+import { PHOTOCOUNT, FROMLIKES, TOLIKES, COMMENTCOUNT, descriptionSet, commentMessageSet, commentUserNames } from './userData.js';
 
 // Получаем message в количестве от 1 до 2х
 const messageFunc = function () {
@@ -40,3 +40,4 @@ const createPhotoDescription = () => {
 const photoDescriptionArray = () => Array.from({ length: PHOTOCOUNT }, createPhotoDescription);
 
 export { photoDescriptionArray };
+// console.log(photoDescriptionArray());
