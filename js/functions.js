@@ -58,33 +58,22 @@
 // getNumber(1.5);
 
 
-// функция для проверки рабочего времени (модуль 5, ч2)
-// привести всё к минутам или часам, смотря что проще. потом проверять, после сложения число находится
-// в диапазоне или нет. надо написать функцию, которая выделить часть до двоеточия и после?
-// 08:15
-
-// 08:15
-// 01234 ну допустим мы получили индекс 2. что потом? в цикле перебрать
-
 const getHour = function (anyTime) {
   return anyTime.split(':');
 };
 
+const getMinutesInDay = function (timeValue) {
+  const givenTimeArray = getHour(timeValue);
+  const hoursGiven = givenTimeArray[0];
+  const minutesGiven = +givenTimeArray[1] + (+hoursGiven * 60);
+  return minutesGiven;
+};
+
 const checkMeetingTime = function (startTime, endTime, meetingStart, duration) {
-  const startTimeArray = getHour(startTime);
-  const hoursStart = startTimeArray[0];
-  const minutesStart = +startTimeArray[1] + (+hoursStart * 60);
-  // console.log('начало рабочего дня в минутах: ' + minutesStart);
-  const endTimeArray = getHour(endTime);
-  const hoursEnd = endTimeArray[0];
-  const minutesEnd = +endTimeArray[1] + (+hoursEnd * 60);
-  // console.log('конец рабочего дня в минутах: ' + minutesEnd);
-  const meetingStartArray = getHour(meetingStart);
-  const hoursMeeting = meetingStartArray[0];
-  const minutesMeetingStart = +meetingStartArray[1] + (+hoursMeeting * 60);
-  // console.log('начало совещания в минутах: ' + minutesMeetingStart);
+  const minutesStart = getMinutesInDay(startTime);
+  const minutesEnd = getMinutesInDay(endTime);
+  const minutesMeetingStart = getMinutesInDay(meetingStart);
   const endingMeeting = minutesMeetingStart + duration;
-  // console.log('конец совещания в минутах:' + endingMeeting);
   if (minutesMeetingStart >= minutesStart && endingMeeting <= minutesEnd) {
     return true;
   } else {
